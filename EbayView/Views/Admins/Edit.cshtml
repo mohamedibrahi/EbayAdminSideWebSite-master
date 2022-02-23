@@ -1,0 +1,98 @@
+﻿@model EbayView.Models.ViewModel.admns.CreateAdminInputModel
+
+@section styleslink  {   
+    <link href="~/css/addProduct.css" rel="stylesheet"/>   
+    <script src="~/js/jquery.min.js"></script> 
+    <script src="~/js/addadmin.js"></script> 
+} 
+
+<h4>Update Admin</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AdminId" value="@ViewBag.selectedadmin.AdminId" />
+            <div class="form-group">
+                <label asp-for="FistName" class="control-label"></label>
+                <input asp-for="FistName" class="form-control" value="@ViewBag.selectedadmin.FistName"/>
+                <span asp-validation-for="FistName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control"  value="@ViewBag.selectedadmin.LastName" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control"  value="@ViewBag.selectedadmin.UserName"/>
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" value="@ViewBag.selectedadmin.Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" value="@ViewBag.selectedadmin.Password"/>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div> 
+            <div class="form-group">
+                <input type="file" name="Img" class="myadminimg" id="file-upload-btn" hidden accept=".png, .jpg"  />
+                <label for="file-upload-btn" id="myimage" class="upload-image control-label" style="height:200px;background-size: contain;background-repeat: no-repeat;width:300px;"></label>
+                <span asp-validation-for="Img" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" value="@ViewBag.selectedadmin.Phone"/>
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="BirthDate" value="@ViewBag.selectedadmin.BirthDate" />
+
+                @* <label asp-for="BirthDate" class="control-label"></label>
+                <input asp-for="BirthDate" id="BirthDate" class="form-control" asp-format="{0:yyyy-MM-ddTHH:mm}" value ="@ViewBag.selectedadmin.BirthDate"  />
+                <span asp-validation-for="BirthDate" class="text-danger"></span> *@ 
+
+                @*@Html.DisplayFor(Model=>Model.BirthDate,new{@class="control-label"})
+                @Html.EditorFor(Model => Model.BirthDate,"{0:yyyy-MM-ddTHH:mm}",new{@class="form-control",@value="@ViewBag.selectedadmin.BirthDate"})
+                @Html.ValidationMessageFor(Model => Model.BirthDate)*@
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="HireDate" value="@ViewBag.selectedadmin.HireDate" />
+
+               @* <label asp-for="HireDate" class="control-label"></label>
+                <input asp-for="HireDate" id="HireDate" class="form-control" asp-format="{0:yyyy-MM-ddTHH:mm}" value ="@ViewBag.selectedadmin.HireDate"  />
+                <span asp-validation-for="HireDate" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="Salary" class="control-label"></label>
+                <input asp-for="Salary" class="form-control" value="@ViewBag.selectedadmin.Salary" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+</div>
+ 
+
+@section Scriptslink  {  
+    <script> 
+        $(window).ready(function () {
+        //$("#myimage").style.backgroundImage= `url('@ViewBag.selectedadmin.Img')`;
+        document.getElementById('myimage').style.backgroundImage= "url('@ViewBag.selectedadmin.Img')";
+        //document.getElementById('HireDate').value = @ViewBag.selectedadmin.HireDate;
+        //document.getElementById('BirthDate').value = @ViewBag.selectedadmin.BirthDate;
+       // console.log('@ViewBag.selectedadmin.Img');
+        });
+    </script>
+
+@* <script src="~/js/addadmin.js"></script> *@
+}
